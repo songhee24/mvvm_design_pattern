@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_design_pattern/view_models/movie_list_view_model.dart';
 import 'package:mvvm_design_pattern/widgets/UI/my_app_bar.dart';
+import 'package:mvvm_design_pattern/widgets/layout/gradient_wrapper.dart';
 import 'package:mvvm_design_pattern/widgets/movie_list.dart';
 import 'package:provider/provider.dart';
 
@@ -26,20 +27,7 @@ class _MovieListViewState extends State<MovieListView> {
   Widget build(BuildContext context) {
     MovieListViewModel moviesViewModel =
         Provider.of<MovieListViewModel>(context);
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomCenter,
-          colors: <Color>[
-            Color(0xff513d79),
-            Color(0xff362654),
-            Color(0xff22133c),
-            Color(0xff3d1856),
-            Color(0xff551560),
-          ],
-        ),
-      ),
+    return GradientWrapper(
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: const MyAppBar(

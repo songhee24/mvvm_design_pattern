@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_design_pattern/view_models/movie_view_model.dart';
 
 ///  Created by mac on 20/1/23.
 class MovieList extends StatelessWidget {
-  final List<dynamic> movies;
+  final List<MovieViewModel> movies;
 
-  MovieList(this.movies);
+  const MovieList({super.key, required this.movies});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class MovieList extends StatelessWidget {
       itemBuilder: (context, index) {
         final movie = movies[index];
         return ListTile(
-          contentPadding: EdgeInsets.all(10),
+          contentPadding: const EdgeInsets.all(10),
           leading: Container(
             decoration: BoxDecoration(
               image: DecorationImage(

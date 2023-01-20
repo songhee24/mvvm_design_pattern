@@ -9,6 +9,9 @@ class GradientWrapper extends StatelessWidget {
     super.key,
     this.colors = const [
       Color(0xff513d79),
+      Color(0xff3d1856),
+      Color(0xff551560),
+      Color(0xff513d79),
       Color(0xff362654),
       Color(0xff22133c),
       Color(0xff3d1856),

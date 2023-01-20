@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_design_pattern/view_models/movie_list_view_model.dart';
+import 'package:mvvm_design_pattern/widgets/UI/input/search_field.dart';
 import 'package:mvvm_design_pattern/widgets/UI/my_app_bar.dart';
 import 'package:mvvm_design_pattern/widgets/layout/gradient_wrapper.dart';
 import 'package:mvvm_design_pattern/widgets/movie_list.dart';
@@ -45,22 +46,11 @@ class _MovieListViewState extends State<MovieListView> {
                   color: Colors.grey,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: TextField(
+                child: SearchField(
                   controller: _controller,
-                  onSubmitted: (value) {
-                    if (value.isNotEmpty) {
-                      moviesViewModel.asyncGetMoviesRequest(value);
-                      _controller.clear();
-                    }
+                  onSearch: (String value) {
+                    moviesViewModel.asyncGetMoviesRequest(value);
                   },
-                  style: const TextStyle(color: Colors.white),
-                  decoration: const InputDecoration(
-                    hintText: 'Search',
-                    hintStyle: TextStyle(
-                      color: Colors.white,
-                    ),
-                    border: InputBorder.none,
-                  ),
                 ),
               ),
               Expanded(

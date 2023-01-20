@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_design_pattern/view_models/movie_list_view_model.dart';
+import 'package:mvvm_design_pattern/widgets/UI/my_app_bar.dart';
 import 'package:mvvm_design_pattern/widgets/movie_list.dart';
 import 'package:provider/provider.dart';
 
@@ -26,8 +27,9 @@ class _MovieListViewState extends State<MovieListView> {
     MovieListViewModel moviesViewModel =
         Provider.of<MovieListViewModel>(context);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Movies'),
+      appBar: MyAppBar(
+        title: 'Movies',
+        key: null,
       ),
       body: Container(
         padding: const EdgeInsets.all(10),

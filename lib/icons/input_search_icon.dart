@@ -9,7 +9,7 @@
 ///   fonts:
 ///    - family:  MyFlutterApp
 ///      fonts:
-///       - asset: fonts/Input-search-icon.ttf
+///       - asset: fonts/Input-Search-Icon.ttf
 ///
 ///
 /// * Web Symbols, Copyright (c) 2011 by Just Be Nice studio. All rights reserved.

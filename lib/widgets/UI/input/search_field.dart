@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../icons/input_search_icon.dart';
+
 ///  Created by mac on 21/1/23.
 class SearchField extends StatefulWidget {
   final TextEditingController controller;
@@ -25,6 +27,7 @@ class _SearchFieldState extends State<SearchField> {
       },
       style: const TextStyle(color: Colors.white),
       decoration: const InputDecoration(
+        prefixIcon: Icon(InputSearchIcon.search),
         hintText: 'Search',
         hintStyle: TextStyle(
           color: Colors.white,

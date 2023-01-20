@@ -27,11 +27,23 @@ class _MovieListViewState extends State<MovieListView> {
     MovieListViewModel moviesViewModel =
         Provider.of<MovieListViewModel>(context);
     return Scaffold(
-      appBar: MyAppBar(
+      appBar: const MyAppBar(
         title: 'Movies',
-        key: null,
       ),
       body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomCenter,
+            colors: <Color>[
+              Color(0xff513d79),
+              Color(0xff362654),
+              Color(0xff22133c),
+              Color(0xff3d1856),
+              Color(0xff551560),
+            ],
+          ),
+        ),
         padding: const EdgeInsets.all(10),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,

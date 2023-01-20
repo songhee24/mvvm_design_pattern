@@ -26,58 +26,61 @@ class _MovieListViewState extends State<MovieListView> {
   Widget build(BuildContext context) {
     MovieListViewModel moviesViewModel =
         Provider.of<MovieListViewModel>(context);
-    return Scaffold(
-      appBar: const MyAppBar(
-        title: 'Movies',
-      ),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomCenter,
-            colors: <Color>[
-              Color(0xff513d79),
-              Color(0xff362654),
-              Color(0xff22133c),
-              Color(0xff3d1856),
-              Color(0xff551560),
-            ],
-          ),
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomCenter,
+          colors: <Color>[
+            Color(0xff513d79),
+            Color(0xff362654),
+            Color(0xff22133c),
+            Color(0xff3d1856),
+            Color(0xff551560),
+          ],
         ),
-        padding: const EdgeInsets.all(10),
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Column(
-          children: <Widget>[
-            Container(
-              padding: const EdgeInsets.only(left: 10),
-              decoration: BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: TextField(
-                controller: _controller,
-                onSubmitted: (value) {
-                  if (value.isNotEmpty) {
-                    moviesViewModel.asyncGetMoviesRequest(value);
-                    _controller.clear();
-                  }
-                },
-                style: const TextStyle(color: Colors.white),
-                decoration: const InputDecoration(
-                  hintText: 'Search',
-                  hintStyle: TextStyle(
-                    color: Colors.white,
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: const MyAppBar(
+          title: 'Movies',
+        ),
+        body: Container(
+          padding: const EdgeInsets.all(10),
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: Column(
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.only(left: 10),
+                decoration: BoxDecoration(
+                  color: Colors.grey,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: TextField(
+                  controller: _controller,
+                  onSubmitted: (value) {
+                    if (value.isNotEmpty) {
+                      moviesViewModel.asyncGetMoviesRequest(value);
+                      _controller.clear();
+                    }
+                  },
+                  style: const TextStyle(color: Colors.white),
+                  decoration: const InputDecoration(
+                    hintText: 'Search',
+                    hintStyle: TextStyle(
+                      color: Colors.white,
+                    ),
+                    border: InputBorder.none,
                   ),
-                  border: InputBorder.none,
                 ),
               ),
-            ),
-            Expanded(
-                child: MovieList(
-              movies: moviesViewModel.movies,
-            )),
-          ],
+              Expanded(
+                  child: MovieList(
+                movies: moviesViewModel.movies,
+              )),
+            ],
+          ),
         ),
       ),
     );
